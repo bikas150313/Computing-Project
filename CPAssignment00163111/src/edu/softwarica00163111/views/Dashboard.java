@@ -38,6 +38,7 @@ public class Dashboard extends javax.swing.JFrame {
         logout = new javax.swing.JMenuItem();
         vendorMenu = new javax.swing.JMenu();
         addVendor = new javax.swing.JMenuItem();
+        viewAllVendors = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -93,6 +94,15 @@ public class Dashboard extends javax.swing.JFrame {
         });
         vendorMenu.add(addVendor);
 
+        viewAllVendors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/view.png"))); // NOI18N
+        viewAllVendors.setText("View all Vendors");
+        viewAllVendors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAllVendorsActionPerformed(evt);
+            }
+        });
+        vendorMenu.add(viewAllVendors);
+
         menubar.add(vendorMenu);
 
         setJMenuBar(menubar);
@@ -112,6 +122,8 @@ public class Dashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void systemEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_systemEditActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
         EditSystemProfile esp = new EditSystemProfile();
         desktoppane.add(esp);
         esp.setVisible(true);
@@ -127,11 +139,24 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutActionPerformed
 
     private void addVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVendorActionPerformed
-        AddVendor av=new AddVendor();
+        desktoppane.removeAll();
+        desktoppane.repaint();
+        AddVendor av = new AddVendor();
         desktoppane.add(av);
         av.setVisible(true);
         av.setLocation(250, 5);
     }//GEN-LAST:event_addVendorActionPerformed
+
+    private void viewAllVendorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllVendorsActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
+        ViewAllVendors vav = new ViewAllVendors();
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screensize = toolkit.getScreenSize();
+        vav.setSize(screensize);
+        vav.setVisible(true);
+        desktoppane.add(vav);
+    }//GEN-LAST:event_viewAllVendorsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,5 +207,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuBar menubar;
     private javax.swing.JMenuItem systemEdit;
     private javax.swing.JMenu vendorMenu;
+    private javax.swing.JMenuItem viewAllVendors;
     // End of variables declaration//GEN-END:variables
 }

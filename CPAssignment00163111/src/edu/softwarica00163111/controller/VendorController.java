@@ -48,4 +48,15 @@ public class VendorController {
         return added;
     }
 
+    public ResultSet viewAllVendor() {
+        ResultSet rs = null;
+        String query = "select * from vendor";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return rs;
+    }
 }

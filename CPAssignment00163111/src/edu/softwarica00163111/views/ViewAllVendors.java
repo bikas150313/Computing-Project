@@ -19,7 +19,7 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewAllVendors
      */
-    private VendorController vc;
+    private final VendorController vc;
 
     public ViewAllVendors() {
         initComponents();
@@ -52,9 +52,16 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
                 "Vendor Name", "Address", "Contact no.", "Email", "Book Purchased", "Author", "Purchase Date", "Quantity", "Rate (in Rs.)", "Discount (in %)", "Total Amount (in Rs.)"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -63,18 +70,17 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
         tbl_viewAllVendors.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbl_viewAllVendors);
         if (tbl_viewAllVendors.getColumnModel().getColumnCount() > 0) {
-            tbl_viewAllVendors.getColumnModel().getColumn(0).setPreferredWidth(200);
-            tbl_viewAllVendors.getColumnModel().getColumn(1).setPreferredWidth(150);
-            tbl_viewAllVendors.getColumnModel().getColumn(2).setPreferredWidth(150);
-            tbl_viewAllVendors.getColumnModel().getColumn(3).setPreferredWidth(250);
-            tbl_viewAllVendors.getColumnModel().getColumn(4).setPreferredWidth(200);
-            tbl_viewAllVendors.getColumnModel().getColumn(5).setPreferredWidth(200);
-            tbl_viewAllVendors.getColumnModel().getColumn(6).setPreferredWidth(150);
-            tbl_viewAllVendors.getColumnModel().getColumn(7).setPreferredWidth(100);
-            tbl_viewAllVendors.getColumnModel().getColumn(8).setPreferredWidth(150);
-            tbl_viewAllVendors.getColumnModel().getColumn(9).setPreferredWidth(150);
-            tbl_viewAllVendors.getColumnModel().getColumn(10).setResizable(false);
-            tbl_viewAllVendors.getColumnModel().getColumn(10).setPreferredWidth(175);
+            tbl_viewAllVendors.getColumnModel().getColumn(0).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(1).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(2).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(3).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(4).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(5).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(6).setPreferredWidth(400);
+            tbl_viewAllVendors.getColumnModel().getColumn(7).setPreferredWidth(250);
+            tbl_viewAllVendors.getColumnModel().getColumn(8).setPreferredWidth(250);
+            tbl_viewAllVendors.getColumnModel().getColumn(9).setPreferredWidth(250);
+            tbl_viewAllVendors.getColumnModel().getColumn(10).setPreferredWidth(250);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -82,12 +88,14 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 2090, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,7 +104,7 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
         ResultSet rs;
         try {
             rs = vc.viewAllVendor();
-            if (rs.next()) {
+            while (rs.next()) {
                 Object obj[] = {rs.getString("Name"), rs.getString("Address"), rs.getString("ContactNo"), rs.getString("Email"), rs.getString("BookPurchased"), rs.getString("Author"), rs.getString("PurchasedDate"), rs.getInt("Quantity"), rs.getFloat("Rate"), rs.getFloat("Discount"), rs.getFloat("TotalAmount")};
                 DefaultTableModel dtm = (DefaultTableModel) tbl_viewAllVendors.getModel();
                 dtm.addRow(obj);

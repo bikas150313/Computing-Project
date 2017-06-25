@@ -52,7 +52,7 @@ public class Login extends javax.swing.JFrame {
         lbl_uname.setText("Username :");
 
         txt_uname.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_uname.setForeground(new java.awt.Color(255, 0, 0));
+        txt_uname.setForeground(new java.awt.Color(0, 51, 153));
         txt_uname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_unameActionPerformed(evt);
@@ -64,7 +64,7 @@ public class Login extends javax.swing.JFrame {
         lbl_password.setText("Password :");
 
         passfield.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        passfield.setForeground(new java.awt.Color(255, 0, 0));
+        passfield.setForeground(new java.awt.Color(0, 51, 153));
 
         btn_login.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_login.setForeground(new java.awt.Color(0, 0, 102));
@@ -74,6 +74,11 @@ public class Login extends javax.swing.JFrame {
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
+            }
+        });
+        btn_login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btn_loginKeyPressed(evt);
             }
         });
 
@@ -164,6 +169,39 @@ public class Login extends javax.swing.JFrame {
                 if (valid) {
                     dispose();
                     Dashboard db = new Dashboard();
+                    /*Toolkit toolKit = Toolkit.getDefaultToolkit();
+                     Dimension screenSize = toolKit.getScreenSize();
+                     db.setSize(screenSize);*/
+                    db.setVisible(true);
+                    db.setResizable(false);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Invalid Username or Password !");
+                    passfield.setText("");
+                    passfield.requestFocus();
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please enter system password !");
+                passfield.requestFocus();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter username for the system !");
+            txt_uname.requestFocus();
+        }
+    }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void btn_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_loginKeyPressed
+        String username = txt_uname.getText();
+        String password = String.valueOf(passfield.getPassword());
+        if (!username.isEmpty()) {
+            if (!password.isEmpty()) {
+                User um = new User();
+                um.setUsername(username);
+                um.setPassword(password);
+                UserController uc = new UserController();
+                boolean valid = uc.authenticate(um);
+                if (valid) {
+                    dispose();
+                    Dashboard db = new Dashboard();
                     Toolkit toolKit = Toolkit.getDefaultToolkit();
                     Dimension screenSize = toolKit.getScreenSize();
                     db.setSize(screenSize);
@@ -182,7 +220,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please enter username for the system !");
             txt_uname.requestFocus();
         }
-    }//GEN-LAST:event_btn_loginActionPerformed
+    }//GEN-LAST:event_btn_loginKeyPressed
 
     /**
      * @param args the command line arguments

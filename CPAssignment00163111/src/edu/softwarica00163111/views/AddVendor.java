@@ -5,7 +5,9 @@
  */
 package edu.softwarica00163111.views;
 
+import edu.softwarica00163111.controller.BookController;
 import edu.softwarica00163111.controller.VendorController;
+import edu.softwarica00163111.model.Book;
 import edu.softwarica00163111.model.Vendor;
 import javax.swing.JOptionPane;
 
@@ -31,125 +33,158 @@ public class AddVendor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pan_addvendor = new javax.swing.JPanel();
-        lbl_vname = new javax.swing.JLabel();
-        txt_vname = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panel = new javax.swing.JPanel();
+        lbl_vendorName = new javax.swing.JLabel();
         lbl_address = new javax.swing.JLabel();
-        txt_address = new javax.swing.JTextField();
         lbl_contact = new javax.swing.JLabel();
-        txt_contact = new javax.swing.JTextField();
         lbl_email = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
-        lbl_bpurchased = new javax.swing.JLabel();
-        txt_bpurchased = new javax.swing.JTextField();
+        lbl_bookPurchased = new javax.swing.JLabel();
+        lbl_purchaseDate = new javax.swing.JLabel();
         lbl_author = new javax.swing.JLabel();
-        txt_author = new javax.swing.JTextField();
-        lbl_date = new javax.swing.JLabel();
+        lbl_genre = new javax.swing.JLabel();
         lbl_quantity = new javax.swing.JLabel();
-        txt_quantity = new javax.swing.JTextField();
         lbl_rate = new javax.swing.JLabel();
-        txt_rate = new javax.swing.JTextField();
         lbl_discount = new javax.swing.JLabel();
+        lbl_totalAmount = new javax.swing.JLabel();
+        txt_vendorName = new javax.swing.JTextField();
+        txt_address = new javax.swing.JTextField();
+        txt_contact = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
+        txt_bookPurchased = new javax.swing.JTextField();
+        txt_author = new javax.swing.JTextField();
+        txt_quantity = new javax.swing.JTextField();
+        lbl_rs = new javax.swing.JLabel();
+        lbl_percent = new javax.swing.JLabel();
+        lbl_trs = new javax.swing.JLabel();
+        txt_rate = new javax.swing.JTextField();
         txt_discount = new javax.swing.JTextField();
-        lbl_tamount = new javax.swing.JLabel();
-        txt_tamount = new javax.swing.JTextField();
+        txt_tAmount = new javax.swing.JTextField();
+        combo_date = new javax.swing.JComboBox();
+        combo_month = new javax.swing.JComboBox();
+        combo_year = new javax.swing.JComboBox();
+        combo_genre = new javax.swing.JComboBox();
         btn_ok = new javax.swing.JButton();
         btn_reset = new javax.swing.JButton();
         btn_cancel = new javax.swing.JButton();
-        comboMonth = new javax.swing.JComboBox();
-        comboYear = new javax.swing.JComboBox();
-        comboDate = new javax.swing.JComboBox();
-        lbl_rs = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        lbl_rs1 = new javax.swing.JLabel();
 
-        pan_addvendor.setBackground(new java.awt.Color(0, 51, 51));
-        pan_addvendor.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Vendor Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Cooper Black", 1, 24), new java.awt.Color(153, 153, 255))); // NOI18N
+        jScrollPane1.setBackground(new java.awt.Color(0, 51, 51));
 
-        lbl_vname.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        lbl_vname.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_vname.setText("Vendor Name :");
+        panel.setBackground(new java.awt.Color(0, 51, 51));
+        panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Vendor Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Cooper Black", 0, 24), new java.awt.Color(153, 153, 255))); // NOI18N
 
-        txt_vname.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_vname.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_vendorName.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_vendorName.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_vendorName.setText("Vendor Name :");
 
         lbl_address.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_address.setForeground(new java.awt.Color(51, 153, 0));
         lbl_address.setText("Address :");
 
-        txt_address.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_address.setForeground(new java.awt.Color(255, 0, 0));
-
         lbl_contact.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_contact.setForeground(new java.awt.Color(51, 153, 0));
         lbl_contact.setText("Contact no. :");
-
-        txt_contact.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_contact.setForeground(new java.awt.Color(255, 0, 0));
 
         lbl_email.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_email.setForeground(new java.awt.Color(51, 153, 0));
         lbl_email.setText("Email :");
 
-        txt_email.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_email.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_bookPurchased.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_bookPurchased.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_bookPurchased.setText("Book Purchased :");
 
-        lbl_bpurchased.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        lbl_bpurchased.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_bpurchased.setText("Book Purchased :");
-
-        txt_bpurchased.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_bpurchased.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_purchaseDate.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_purchaseDate.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_purchaseDate.setText("Purchase Date :");
 
         lbl_author.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_author.setForeground(new java.awt.Color(51, 153, 0));
         lbl_author.setText("Author :");
 
-        txt_author.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_author.setForeground(new java.awt.Color(255, 0, 0));
-
-        lbl_date.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        lbl_date.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_date.setText("Purchase Date :");
+        lbl_genre.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_genre.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_genre.setText("Genre :");
 
         lbl_quantity.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_quantity.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_quantity.setText("Quantity (in number) :");
-
-        txt_quantity.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_quantity.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_quantity.setText("Quantity :");
 
         lbl_rate.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_rate.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_rate.setText("Rate per Book (in Rs.) :");
-
-        txt_rate.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_rate.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_rate.setText("Rate per Book :");
 
         lbl_discount.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_discount.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_discount.setText("Discount Rate (in %) :");
+        lbl_discount.setText("Discount Rate :");
+
+        lbl_totalAmount.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_totalAmount.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_totalAmount.setText("Total Amount :");
+
+        txt_vendorName.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_vendorName.setForeground(new java.awt.Color(0, 51, 153));
+
+        txt_address.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_address.setForeground(new java.awt.Color(0, 51, 153));
+
+        txt_contact.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_contact.setForeground(new java.awt.Color(0, 51, 153));
+
+        txt_email.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_email.setForeground(new java.awt.Color(0, 51, 153));
+
+        txt_bookPurchased.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_bookPurchased.setForeground(new java.awt.Color(0, 51, 153));
+
+        txt_author.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_author.setForeground(new java.awt.Color(0, 51, 153));
+
+        txt_quantity.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_quantity.setForeground(new java.awt.Color(0, 51, 153));
+
+        lbl_rs.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_rs.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_rs.setText("Rs.");
+
+        lbl_percent.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_percent.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_percent.setText("%");
+
+        lbl_trs.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
+        lbl_trs.setForeground(new java.awt.Color(51, 153, 0));
+        lbl_trs.setText("Rs.");
+
+        txt_rate.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_rate.setForeground(new java.awt.Color(0, 51, 153));
 
         txt_discount.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_discount.setForeground(new java.awt.Color(255, 0, 0));
+        txt_discount.setForeground(new java.awt.Color(0, 51, 153));
 
-        lbl_tamount.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        lbl_tamount.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_tamount.setText("Total Amount (in Rs.) :");
+        txt_tAmount.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        txt_tAmount.setForeground(new java.awt.Color(0, 51, 153));
 
-        txt_tamount.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_tamount.setForeground(new java.awt.Color(255, 0, 0));
-        txt_tamount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_tamountActionPerformed(evt);
-            }
-        });
+        combo_date.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        combo_date.setForeground(new java.awt.Color(0, 51, 153));
+        combo_date.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32" }));
+
+        combo_month.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        combo_month.setForeground(new java.awt.Color(0, 51, 153));
+        combo_month.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+
+        combo_year.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        combo_year.setForeground(new java.awt.Color(0, 51, 153));
+        combo_year.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2016", "2017", "2018", "2019", "2020" }));
+
+        combo_genre.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        combo_genre.setForeground(new java.awt.Color(0, 51, 153));
+        combo_genre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Adventure", "Biography", "Fantasy", "Fiction", "History", "Horror", "Non-Fiction", "Sci-Fi", "Thriller" }));
 
         btn_ok.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_ok.setForeground(new java.awt.Color(0, 0, 102));
         btn_ok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/ok.png"))); // NOI18N
-        btn_ok.setText("Ok");
+        btn_ok.setText("OK");
         btn_ok.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_ok.setPreferredSize(new java.awt.Dimension(83, 29));
         btn_ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_okActionPerformed(evt);
@@ -161,6 +196,7 @@ public class AddVendor extends javax.swing.JInternalFrame {
         btn_reset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/reset.png"))); // NOI18N
         btn_reset.setText("Reset");
         btn_reset.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_reset.setPreferredSize(new java.awt.Dimension(83, 29));
         btn_reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_resetActionPerformed(evt);
@@ -172,349 +208,276 @@ public class AddVendor extends javax.swing.JInternalFrame {
         btn_cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/cancel.png"))); // NOI18N
         btn_cancel.setText("Cancel");
         btn_cancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_cancel.setPreferredSize(new java.awt.Dimension(83, 29));
         btn_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelActionPerformed(evt);
             }
         });
 
-        comboMonth.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        comboMonth.setForeground(new java.awt.Color(255, 0, 0));
-        comboMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September ", "October ", "November", "December " }));
-        comboMonth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboMonthActionPerformed(evt);
-            }
-        });
-
-        comboYear.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        comboYear.setForeground(new java.awt.Color(255, 0, 0));
-        comboYear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
-        comboYear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboYearActionPerformed(evt);
-            }
-        });
-
-        comboDate.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        comboDate.setForeground(new java.awt.Color(255, 0, 0));
-        comboDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32" }));
-
-        lbl_rs.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        lbl_rs.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_rs.setText("Rs.");
-
-        jLabel1.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 153, 0));
-        jLabel1.setText("%");
-
-        lbl_rs1.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
-        lbl_rs1.setForeground(new java.awt.Color(51, 153, 0));
-        lbl_rs1.setText("Rs.");
-
-        javax.swing.GroupLayout pan_addvendorLayout = new javax.swing.GroupLayout(pan_addvendor);
-        pan_addvendor.setLayout(pan_addvendorLayout);
-        pan_addvendorLayout.setHorizontalGroup(
-            pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan_addvendorLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_tamount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_discount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_rate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_quantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_date, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                    .addComponent(lbl_author, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_bpurchased, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_contact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbl_vname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pan_addvendorLayout.createSequentialGroup()
-                        .addComponent(lbl_rs, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_tamount, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_vname, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_address, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_contact, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_bpurchased, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_author, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_quantity, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan_addvendorLayout.createSequentialGroup()
-                        .addComponent(comboYear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(comboDate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pan_addvendorLayout.createSequentialGroup()
-                        .addComponent(txt_discount, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pan_addvendorLayout.createSequentialGroup()
-                        .addComponent(lbl_rs1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_rate, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pan_addvendorLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
-                .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_discount)
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_vendorName)
+                            .addComponent(lbl_address)
+                            .addComponent(lbl_contact)
+                            .addComponent(lbl_email)
+                            .addComponent(lbl_bookPurchased)
+                            .addComponent(lbl_author)
+                            .addComponent(lbl_quantity)
+                            .addComponent(lbl_rate)
+                            .addComponent(lbl_totalAmount)
+                            .addComponent(lbl_purchaseDate)
+                            .addComponent(lbl_genre)
+                            .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(51, 51, 51)
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(lbl_rs)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_rate))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addComponent(txt_discount)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_percent))
+                            .addComponent(txt_vendorName)
+                            .addComponent(txt_address)
+                            .addComponent(txt_contact)
+                            .addComponent(txt_email)
+                            .addComponent(txt_bookPurchased)
+                            .addComponent(txt_author)
+                            .addComponent(txt_quantity)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(combo_date, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(combo_year, 0, 101, Short.MAX_VALUE))
+                            .addComponent(combo_genre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addComponent(lbl_trs)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_tAmount))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(144, 144, 144)
+                                .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
-        pan_addvendorLayout.setVerticalGroup(
-            pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pan_addvendorLayout.createSequentialGroup()
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_vname)
-                    .addComponent(txt_vname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_address)
-                    .addComponent(txt_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_contact)
-                    .addComponent(txt_contact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_email))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_bpurchased)
-                    .addComponent(txt_bpurchased, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_author)
-                    .addComponent(txt_author, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_date, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboMonth)
-                    .addComponent(comboYear)
-                    .addComponent(comboDate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_quantity)
-                    .addComponent(txt_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbl_rate)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_vendorName)
+                    .addComponent(lbl_vendorName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_address)
+                    .addComponent(lbl_address, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_contact)
+                    .addComponent(lbl_contact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_email)
+                    .addComponent(lbl_email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_bookPurchased)
+                    .addComponent(lbl_bookPurchased, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_purchaseDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(combo_date)
+                        .addComponent(combo_month, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(combo_year, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_author)
+                    .addComponent(lbl_author, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_genre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(combo_genre))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_quantity)
+                    .addComponent(lbl_quantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txt_rate)
-                    .addComponent(lbl_rs1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pan_addvendorLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_discount)
-                            .addComponent(txt_discount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pan_addvendorLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lbl_tamount)
-                        .addComponent(txt_tamount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_rs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 34, Short.MAX_VALUE)
-                .addGroup(pan_addvendorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_reset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(btn_ok, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(lbl_rate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_rs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_discount)
+                    .addComponent(lbl_discount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_percent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_tAmount)
+                    .addComponent(lbl_totalAmount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_trs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29))
         );
+
+        jScrollPane1.setViewportView(panel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pan_addvendor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pan_addvendor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_btn_cancelActionPerformed
 
     private void btn_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resetActionPerformed
-        txt_vname.setText("");
+        txt_vendorName.setText("");
         txt_address.setText("");
         txt_contact.setText("");
         txt_email.setText("");
-        txt_bpurchased.setText("");
+        txt_bookPurchased.setText("");
         txt_author.setText("");
         txt_quantity.setText("");
         txt_rate.setText("");
         txt_discount.setText("");
-        txt_tamount.setText("");
-        txt_vname.requestFocus();
+        txt_tAmount.setText("");
+        txt_vendorName.requestFocus();
     }//GEN-LAST:event_btn_resetActionPerformed
 
     private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
-        String vname = txt_vname.getText();
+        String vendorName = txt_vendorName.getText();
         String address = txt_address.getText();
         String contact = txt_contact.getText();
         String email = txt_email.getText();
-        String bookpurchase = txt_bpurchased.getText();
+        String bookPurchased = txt_bookPurchased.getText();
+        String date = (String) combo_date.getSelectedItem();
+        String month = (String) combo_month.getSelectedItem();
+        String year = (String) combo_year.getSelectedItem();
         String author = txt_author.getText();
-        String year = (String) comboYear.getSelectedItem();
-        String month = (String) comboMonth.getSelectedItem();
-        String date = (String) comboDate.getSelectedItem();
+        String genre = (String) combo_genre.getSelectedItem();
         String quantity = txt_quantity.getText();
         String rate = txt_rate.getText();
         String discount = txt_discount.getText();
-        String tamount = txt_tamount.getText();
+        String totalAmount = txt_tAmount.getText();
         String purchaseDate = date + "-" + month + "-" + year;
-        if (!vname.isEmpty()) {
-            if (!address.isEmpty()) {
-                if (!contact.isEmpty()) {
-                    if (!email.isEmpty()) {
-                        if (!bookpurchase.isEmpty()) {
-                            if (!author.isEmpty()) {
-                                if (!quantity.isEmpty()) {
-                                    if (!rate.isEmpty()) {
-                                        if (!discount.isEmpty()) {
-                                            if (!tamount.isEmpty()) {
-                                                int changeQuantity = Integer.parseInt(quantity);
-                                                float changeRate = Float.parseFloat(rate);
-                                                float changeDiscount = Float.parseFloat(discount);
-                                                float changeTotalAmount = Float.parseFloat(tamount);
-                                                Vendor vr = new Vendor();
-                                                vr.setName(vname);
-                                                vr.setAddress(address);
-                                                vr.setContactNo(contact);
-                                                vr.setEmail(email);
-                                                vr.setBookPurchased(bookpurchase);
-                                                vr.setAuthor(author);
-                                                vr.setPurchasedDate(purchaseDate);
-                                                vr.setQuantity(changeQuantity);
-                                                vr.setRate(changeRate);
-                                                vr.setDiscount(changeDiscount);
-                                                vr.setTotalAmount(changeTotalAmount);
-                                                VendorController vc = new VendorController();
-                                                int isVendorAdded = vc.addVendor(vr);
-                                                if (isVendorAdded == 1) {
-                                                    JOptionPane.showMessageDialog(this, "Vendor successfully added !");
-                                                    txt_vname.setText("");
-                                                    txt_address.setText("");
-                                                    txt_contact.setText("");
-                                                    txt_email.setText("");
-                                                    txt_bpurchased.setText("");
-                                                    txt_author.setText("");
-                                                    txt_quantity.setText("");
-                                                    txt_rate.setText("");
-                                                    txt_discount.setText("");
-                                                    txt_tamount.setText("");
-                                                    txt_vname.requestFocus();
-                                                } else {
-                                                    JOptionPane.showMessageDialog(this, "There was a problem adding the vendor !");
-                                                }
-                                            } else {
-                                                JOptionPane.showMessageDialog(this, "Please enter total amount !");
-                                                txt_tamount.requestFocus();
-                                            }
-                                        } else {
-                                            JOptionPane.showMessageDialog(this, "Please enter discount rate !");
-                                            txt_discount.requestFocus();
-                                        }
-                                    } else {
-                                        JOptionPane.showMessageDialog(this, "Please enter rate per book !");
-                                        txt_rate.requestFocus();
-                                    }
-                                } else {
-                                    JOptionPane.showMessageDialog(this, "Please enter total quantity of book !");
-                                    txt_quantity.requestFocus();
-                                }
-                            } else {
-                                JOptionPane.showMessageDialog(this, "Please enter author name !");
-                                txt_author.requestFocus();
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(this, "Please enter book name that was purchased !");
-                            txt_bpurchased.requestFocus();
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Please enter vendor email !");
-                        txt_email.requestFocus();
-                    }
+        if (!vendorName.isEmpty() && !address.isEmpty() && !contact.isEmpty() && !email.isEmpty() && !bookPurchased.isEmpty() && !author.isEmpty() && !quantity.isEmpty() && !rate.isEmpty() && !discount.isEmpty() && !totalAmount.isEmpty()) {
+            Vendor vendor = new Vendor();
+            vendor.setBookPurchased(bookPurchased);
+            VendorController vendorcontroller = new VendorController();
+            boolean bookAlreadyExists = vendorcontroller.checkBook(vendor);
+            if (!bookAlreadyExists) {
+                int modifiedQuantity = Integer.parseInt(quantity);
+                float modifiedRate = Float.parseFloat(rate);
+                float modifiedDiscount = Float.parseFloat(discount);
+                float modifiedTotalAmount = Float.parseFloat(totalAmount);
+                vendor.setName(vendorName);
+                vendor.setAddress(address);
+                vendor.setContactNo(contact);
+                vendor.setEmail(email);
+                vendor.setBookPurchased(bookPurchased);
+                vendor.setPurchaseDate(purchaseDate);
+                vendor.setAuthor(author);
+                vendor.setGenre(genre);
+                vendor.setQuantity(modifiedQuantity);
+                vendor.setRate(modifiedRate);
+                vendor.setDiscount(modifiedDiscount);
+                vendor.setTotalAmount(modifiedTotalAmount);
+                Book book = new Book();
+                book.setBookName(bookPurchased);
+                book.setAuthor(author);
+                book.setGenre(genre);
+                book.setQuantity(modifiedQuantity);
+                book.setRate(modifiedRate);
+                BookController bookcontroller = new BookController();
+                int isVendorAdded = vendorcontroller.addVendor(vendor);
+                int isBookAdded = bookcontroller.addBook(book);
+                if (isVendorAdded == 1 && isBookAdded == 1) {
+                    JOptionPane.showMessageDialog(this, "Vendor and Book successfully added !");
+                    txt_vendorName.setText("");
+                    txt_address.setText("");
+                    txt_contact.setText("");
+                    txt_email.setText("");
+                    txt_bookPurchased.setText("");
+                    txt_author.setText("");
+                    txt_quantity.setText("");
+                    txt_rate.setText("");
+                    txt_discount.setText("");
+                    txt_tAmount.setText("");
+                    txt_vendorName.requestFocus();
                 } else {
-                    JOptionPane.showMessageDialog(this, "Please enter vendor contact number !");
-                    txt_contact.requestFocus();
+                    JOptionPane.showMessageDialog(this, "There was a problem adding Vendor and Book !");
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Please enter vendor address !");
-                txt_address.requestFocus();
+                JOptionPane.showMessageDialog(this, "This Book is already available in the store. Please modify previous details !");
             }
+            //JOptionPane.showMessageDialog(this, "Vendor Name : " + vendorName + " Address : " + address + " Purchase Date : " + purchaseDate);
         } else {
-            JOptionPane.showMessageDialog(this, "Please enter vendor name !");
-            txt_vname.requestFocus();
+            JOptionPane.showMessageDialog(this, "Please fill all the fields !");
         }
     }//GEN-LAST:event_btn_okActionPerformed
-
-    private void comboMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMonthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboMonthActionPerformed
-
-    private void comboYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboYearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboYearActionPerformed
-
-    private void txt_tamountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tamountActionPerformed
-        /*int quantity = Integer.parseInt(txt_quantity.getText());
-         int rate = Integer.parseInt(txt_rate.getText());
-         int discount = Integer.parseInt(txt_discount.getText());
-         int amount = quantity * rate;
-         int discountRate = (discount / 100) * amount;
-         int totalAmount = amount - discount;
-         txt_tamount.setText(String.valueOf(totalAmount));*/
-    }//GEN-LAST:event_txt_tamountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancel;
     private javax.swing.JButton btn_ok;
     private javax.swing.JButton btn_reset;
-    private javax.swing.JComboBox comboDate;
-    private javax.swing.JComboBox comboMonth;
-    private javax.swing.JComboBox comboYear;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox combo_date;
+    private javax.swing.JComboBox combo_genre;
+    private javax.swing.JComboBox combo_month;
+    private javax.swing.JComboBox combo_year;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_address;
     private javax.swing.JLabel lbl_author;
-    private javax.swing.JLabel lbl_bpurchased;
+    private javax.swing.JLabel lbl_bookPurchased;
     private javax.swing.JLabel lbl_contact;
-    private javax.swing.JLabel lbl_date;
     private javax.swing.JLabel lbl_discount;
     private javax.swing.JLabel lbl_email;
+    private javax.swing.JLabel lbl_genre;
+    private javax.swing.JLabel lbl_percent;
+    private javax.swing.JLabel lbl_purchaseDate;
     private javax.swing.JLabel lbl_quantity;
     private javax.swing.JLabel lbl_rate;
     private javax.swing.JLabel lbl_rs;
-    private javax.swing.JLabel lbl_rs1;
-    private javax.swing.JLabel lbl_tamount;
-    private javax.swing.JLabel lbl_vname;
-    private javax.swing.JPanel pan_addvendor;
+    private javax.swing.JLabel lbl_totalAmount;
+    private javax.swing.JLabel lbl_trs;
+    private javax.swing.JLabel lbl_vendorName;
+    private javax.swing.JPanel panel;
     private javax.swing.JTextField txt_address;
     private javax.swing.JTextField txt_author;
-    private javax.swing.JTextField txt_bpurchased;
+    private javax.swing.JTextField txt_bookPurchased;
     private javax.swing.JTextField txt_contact;
     private javax.swing.JTextField txt_discount;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_quantity;
     private javax.swing.JTextField txt_rate;
-    private javax.swing.JTextField txt_tamount;
-    private javax.swing.JTextField txt_vname;
+    private javax.swing.JTextField txt_tAmount;
+    private javax.swing.JTextField txt_vendorName;
     // End of variables declaration//GEN-END:variables
 }

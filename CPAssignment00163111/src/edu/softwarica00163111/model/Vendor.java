@@ -32,8 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Vendor.findByContactNo", query = "SELECT v FROM Vendor v WHERE v.contactNo = :contactNo"),
     @NamedQuery(name = "Vendor.findByEmail", query = "SELECT v FROM Vendor v WHERE v.email = :email"),
     @NamedQuery(name = "Vendor.findByBookPurchased", query = "SELECT v FROM Vendor v WHERE v.bookPurchased = :bookPurchased"),
+    @NamedQuery(name = "Vendor.findByPurchaseDate", query = "SELECT v FROM Vendor v WHERE v.purchaseDate = :purchaseDate"),
     @NamedQuery(name = "Vendor.findByAuthor", query = "SELECT v FROM Vendor v WHERE v.author = :author"),
-    @NamedQuery(name = "Vendor.findByPurchasedDate", query = "SELECT v FROM Vendor v WHERE v.purchasedDate = :purchasedDate"),
+    @NamedQuery(name = "Vendor.findByGenre", query = "SELECT v FROM Vendor v WHERE v.genre = :genre"),
     @NamedQuery(name = "Vendor.findByQuantity", query = "SELECT v FROM Vendor v WHERE v.quantity = :quantity"),
     @NamedQuery(name = "Vendor.findByRate", query = "SELECT v FROM Vendor v WHERE v.rate = :rate"),
     @NamedQuery(name = "Vendor.findByDiscount", query = "SELECT v FROM Vendor v WHERE v.discount = :discount"),
@@ -61,11 +62,14 @@ public class Vendor implements Serializable {
     @Column(name = "BookPurchased")
     private String bookPurchased;
     @Basic(optional = false)
+    @Column(name = "PurchaseDate")
+    private String purchaseDate;
+    @Basic(optional = false)
     @Column(name = "Author")
     private String author;
     @Basic(optional = false)
-    @Column(name = "PurchasedDate")
-    private String purchasedDate;
+    @Column(name = "Genre")
+    private String genre;
     @Basic(optional = false)
     @Column(name = "Quantity")
     private int quantity;
@@ -86,15 +90,16 @@ public class Vendor implements Serializable {
         this.id = id;
     }
 
-    public Vendor(Integer id, String name, String address, String contactNo, String email, String bookPurchased, String author, String purchasedDate, int quantity, float rate, float discount, float totalAmount) {
+    public Vendor(Integer id, String name, String address, String contactNo, String email, String bookPurchased, String purchaseDate, String author, String genre, int quantity, float rate, float discount, float totalAmount) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.contactNo = contactNo;
         this.email = email;
         this.bookPurchased = bookPurchased;
+        this.purchaseDate = purchaseDate;
         this.author = author;
-        this.purchasedDate = purchasedDate;
+        this.genre = genre;
         this.quantity = quantity;
         this.rate = rate;
         this.discount = discount;
@@ -149,6 +154,14 @@ public class Vendor implements Serializable {
         this.bookPurchased = bookPurchased;
     }
 
+    public String getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public void setPurchaseDate(String purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -157,12 +170,12 @@ public class Vendor implements Serializable {
         this.author = author;
     }
 
-    public String getPurchasedDate() {
-        return purchasedDate;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setPurchasedDate(String purchasedDate) {
-        this.purchasedDate = purchasedDate;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public int getQuantity() {

@@ -19,11 +19,11 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewAllVendors
      */
-    private final VendorController vc;
+    private final VendorController vendorcontroller;
 
     public ViewAllVendors() {
         initComponents();
-        vc = new VendorController();
+        vendorcontroller = new VendorController();
         this.loadAllVendors();
     }
 
@@ -38,25 +38,27 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_viewAllVendors = new javax.swing.JTable();
+        panel = new javax.swing.JPanel();
+        btn_edit = new javax.swing.JButton();
 
         setClosable(true);
 
         tbl_viewAllVendors.setBackground(new java.awt.Color(204, 255, 204));
         tbl_viewAllVendors.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        tbl_viewAllVendors.setForeground(new java.awt.Color(255, 0, 0));
+        tbl_viewAllVendors.setForeground(new java.awt.Color(0, 51, 153));
         tbl_viewAllVendors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Vendor Name", "Address", "Contact no.", "Email", "Book Purchased", "Author", "Purchase Date", "Quantity", "Rate (in Rs.)", "Discount (in %)", "Total Amount (in Rs.)"
+                "Vendor Name", "Address", "Contact no.", "Email", "Book Purchased", "Purchase Date", "Author", "Genre", "Quantity", "Rate (in Rs.)", "Discount (in %)", "Total Amount (in Rs.)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -75,27 +77,53 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
             tbl_viewAllVendors.getColumnModel().getColumn(2).setPreferredWidth(500);
             tbl_viewAllVendors.getColumnModel().getColumn(3).setPreferredWidth(500);
             tbl_viewAllVendors.getColumnModel().getColumn(4).setPreferredWidth(500);
-            tbl_viewAllVendors.getColumnModel().getColumn(5).setPreferredWidth(500);
-            tbl_viewAllVendors.getColumnModel().getColumn(6).setPreferredWidth(400);
-            tbl_viewAllVendors.getColumnModel().getColumn(7).setPreferredWidth(250);
+            tbl_viewAllVendors.getColumnModel().getColumn(5).setPreferredWidth(400);
+            tbl_viewAllVendors.getColumnModel().getColumn(6).setPreferredWidth(500);
+            tbl_viewAllVendors.getColumnModel().getColumn(7).setPreferredWidth(500);
             tbl_viewAllVendors.getColumnModel().getColumn(8).setPreferredWidth(250);
             tbl_viewAllVendors.getColumnModel().getColumn(9).setPreferredWidth(250);
             tbl_viewAllVendors.getColumnModel().getColumn(10).setPreferredWidth(250);
+            tbl_viewAllVendors.getColumnModel().getColumn(11).setPreferredWidth(250);
         }
+
+        panel.setBackground(new java.awt.Color(0, 51, 51));
+
+        btn_edit.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
+        btn_edit.setForeground(new java.awt.Color(0, 0, 102));
+        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/edit.png"))); // NOI18N
+        btn_edit.setText("Edit");
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_edit)
+                .addContainerGap())
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_edit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 2090, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 2269, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,9 +131,9 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
     public void loadAllVendors() {
         ResultSet rs;
         try {
-            rs = vc.viewAllVendor();
+            rs = vendorcontroller.viewAllVendor();
             while (rs.next()) {
-                Object obj[] = {rs.getString("Name"), rs.getString("Address"), rs.getString("ContactNo"), rs.getString("Email"), rs.getString("BookPurchased"), rs.getString("Author"), rs.getString("PurchasedDate"), rs.getInt("Quantity"), rs.getFloat("Rate"), rs.getFloat("Discount"), rs.getFloat("TotalAmount")};
+                Object obj[] = {rs.getString("Name"), rs.getString("Address"), rs.getString("ContactNo"), rs.getString("Email"), rs.getString("BookPurchased"), rs.getString("PurchaseDate"), rs.getString("Author"), rs.getString("Genre"), rs.getInt("Quantity"), rs.getFloat("Rate"), rs.getFloat("Discount"), rs.getFloat("TotalAmount")};
                 DefaultTableModel dtm = (DefaultTableModel) tbl_viewAllVendors.getModel();
                 dtm.addRow(obj);
             }
@@ -115,7 +143,9 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_edit;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panel;
     private javax.swing.JTable tbl_viewAllVendors;
     // End of variables declaration//GEN-END:variables
 }

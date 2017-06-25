@@ -24,28 +24,45 @@ public class VendorController {
         }
     }
 
-    public int addVendor(Vendor vr) {
-        int added = 0;
-        String query = "insert into vendor(ID,Name,Address,ContactNo,Email,BookPurchased,Author,PurchasedDate,Quantity,Rate,Discount,TotalAmount) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+    public boolean checkBook(Vendor vendor) {
+        boolean bookExists = false;
+        String query = "select * from vendor where BookPurchased=?";
         try {
             ps = con.prepareStatement(query);
-            ps.setString(1, null);
-            ps.setString(2, vr.getName());
-            ps.setString(3, vr.getAddress());
-            ps.setString(4, vr.getContactNo());
-            ps.setString(5, vr.getEmail());
-            ps.setString(6, vr.getBookPurchased());
-            ps.setString(7, vr.getAuthor());
-            ps.setString(8, vr.getPurchasedDate());
-            ps.setInt(9, vr.getQuantity());
-            ps.setFloat(10, vr.getRate());
-            ps.setFloat(11, vr.getDiscount());
-            ps.setFloat(12, vr.getTotalAmount());
-            added = ps.executeUpdate();
+            ps.setString(1, vendor.getBookPurchased());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                bookExists = true;
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        return added;
+        return bookExists;
+    }
+
+    public int addVendor(Vendor vendor) {
+        int vendorAdded = 0;
+        String query = "insert into vendor(ID,Name,Address,ContactNo,Email,BookPurchased,PurchaseDate,Author,Genre,Quantity,Rate,Discount,TotalAmount) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, null);
+            ps.setString(2, vendor.getName());
+            ps.setString(3, vendor.getAddress());
+            ps.setString(4, vendor.getContactNo());
+            ps.setString(5, vendor.getEmail());
+            ps.setString(6, vendor.getBookPurchased());
+            ps.setString(7, vendor.getPurchaseDate());
+            ps.setString(8, vendor.getAuthor());
+            ps.setString(9, vendor.getGenre());
+            ps.setInt(10, vendor.getQuantity());
+            ps.setFloat(11, vendor.getRate());
+            ps.setFloat(12, vendor.getDiscount());
+            ps.setFloat(13, vendor.getTotalAmount());
+            vendorAdded = ps.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return vendorAdded;
     }
 
     public ResultSet viewAllVendor() {

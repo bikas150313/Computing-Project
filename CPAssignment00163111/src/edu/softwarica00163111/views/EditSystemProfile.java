@@ -50,7 +50,7 @@ public class EditSystemProfile extends javax.swing.JInternalFrame {
         lbl_username.setText("Username :");
 
         txt_username.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_username.setForeground(new java.awt.Color(255, 0, 0));
+        txt_username.setForeground(new java.awt.Color(0, 51, 153));
 
         lbl_password.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_password.setForeground(new java.awt.Color(51, 153, 0));
@@ -61,10 +61,10 @@ public class EditSystemProfile extends javax.swing.JInternalFrame {
         lbl_confirmpassword.setText("Confirm Password :");
 
         passfield.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        passfield.setForeground(new java.awt.Color(255, 0, 0));
+        passfield.setForeground(new java.awt.Color(0, 51, 153));
 
         confirmpassfield.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        confirmpassfield.setForeground(new java.awt.Color(255, 0, 0));
+        confirmpassfield.setForeground(new java.awt.Color(0, 51, 153));
 
         btn_ok.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_ok.setForeground(new java.awt.Color(0, 0, 102));

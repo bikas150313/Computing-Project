@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>edu.softwarica00163111.model.User</class>
     <class>edu.softwarica00163111.model.Vendor</class>
+    <class>edu.softwarica00163111.model.Book</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cpassignment00163111?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

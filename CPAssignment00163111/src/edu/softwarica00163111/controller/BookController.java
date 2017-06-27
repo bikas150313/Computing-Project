@@ -42,4 +42,48 @@ public class BookController {
         return bookAdded;
     }
 
+    public boolean checkBook(Book book) {
+        boolean bookAvailable = false;
+        String query = "select * from book where BookName=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, book.getBookName());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                bookAvailable = true;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return bookAvailable;
+    }
+
+    public int checkQuantity(Book book) {
+        int bookQuantity = 0;
+        String query = "select * from book where BookName=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, book.getBookName());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                bookQuantity = rs.getInt("Quantity");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return bookQuantity;
+    }
+
+    public void updateQuantity(Book book, int updatedQuantity) {
+        String query = "update book set Quantity=? where BookName=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setInt(1, updatedQuantity);
+            ps.setString(2, book.getBookName());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+
 }

@@ -17,12 +17,19 @@ public class VendorController {
     private Connection con = null;
     private PreparedStatement ps;
     private ResultSet rs;
+    private String vendorName;
+    private String bookPurchased;
 
     public VendorController() {
         if (con == null) {
             con = DBConnection.getConnection();
         }
     }
+
+    /*public VendorController(String vendor, String book) {
+     this.vendorName = vendor;
+     this.bookPurchased = book;
+     }*/
 
     public boolean checkBook(Vendor vendor) {
         boolean bookExists = false;
@@ -70,6 +77,22 @@ public class VendorController {
         String query = "select * from vendor";
         try {
             ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return rs;
+    }
+
+    public ResultSet editVendor(String vendor, String book) {
+        this.vendorName = vendor;
+        this.bookPurchased = book;
+        ResultSet rs = null;
+        String query = "select * from vendor where Name=? and BookPurchased=?";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, vendorName);
+            ps.setString(2, bookPurchased);
             rs = ps.executeQuery();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);

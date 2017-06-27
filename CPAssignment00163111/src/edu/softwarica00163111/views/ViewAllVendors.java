@@ -19,7 +19,7 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewAllVendors
      */
-    private final VendorController vendorcontroller;
+    private VendorController vendorcontroller;
 
     public ViewAllVendors() {
         initComponents();
@@ -69,6 +69,7 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_viewAllVendors.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tbl_viewAllVendors.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbl_viewAllVendors);
         if (tbl_viewAllVendors.getColumnModel().getColumnCount() > 0) {
@@ -92,6 +93,11 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
         btn_edit.setForeground(new java.awt.Color(0, 0, 102));
         btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/edit.png"))); // NOI18N
         btn_edit.setText("Edit");
+        btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -128,6 +134,22 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
+        int row = tbl_viewAllVendors.getSelectedRow();
+        if (row >= 0) {
+            String vendorName = (String) tbl_viewAllVendors.getModel().getValueAt(row, 0);
+            String bookPurchased = (String) tbl_viewAllVendors.getModel().getValueAt(row, 4);
+            //JOptionPane.showMessageDialog(this, "Vendor Name : " + vendorName + " Book Purchased : " + bookPurchased);
+            //EditVendor editvendor = new EditVendor(vendorName, bookPurchased);
+            ResultSet rs = vendorcontroller.editVendor(vendorName, bookPurchased);
+            EditVendor editvendor = new EditVendor(rs);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "No vendor selected ! Please select a vendor.");
+        }
+    }//GEN-LAST:event_btn_editActionPerformed
+
     public void loadAllVendors() {
         ResultSet rs;
         try {

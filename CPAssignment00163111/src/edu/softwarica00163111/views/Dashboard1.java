@@ -58,7 +58,6 @@ public class Dashboard1 extends javax.swing.JFrame {
         addVendor = new javax.swing.JMenuItem();
         viewAllVendors = new javax.swing.JMenuItem();
         bookMenu = new javax.swing.JMenu();
-        addBook = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -284,16 +283,6 @@ public class Dashboard1 extends javax.swing.JFrame {
 
         bookMenu.setText("Book");
         bookMenu.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-
-        addBook.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        addBook.setText("Add Book");
-        addBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBookActionPerformed(evt);
-            }
-        });
-        bookMenu.add(addBook);
-
         menubar.add(bookMenu);
 
         setJMenuBar(menubar);
@@ -352,15 +341,6 @@ public class Dashboard1 extends javax.swing.JFrame {
         desktoppane.add(vav);
     }//GEN-LAST:event_viewAllVendorsActionPerformed
 
-    private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
-        desktoppane.removeAll();
-        desktoppane.repaint();
-        AddBook ab = new AddBook();
-        desktoppane.add(ab);
-        ab.setVisible(true);
-        ab.setLocation(250, 5);
-    }//GEN-LAST:event_addBookActionPerformed
-
     private void btn_biographyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_biographyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_biographyActionPerformed
@@ -417,7 +397,6 @@ public class Dashboard1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem addBook;
     private javax.swing.JMenuItem addVendor;
     private javax.swing.JMenu bookMenu;
     private javax.swing.JButton btn_adventure;

@@ -5,6 +5,8 @@
     <class>edu.softwarica00163111.model.User</class>
     <class>edu.softwarica00163111.model.Vendor</class>
     <class>edu.softwarica00163111.model.Book</class>
+    <class>edu.softwarica00163111.model.Customer</class>
+    <class>edu.softwarica00163111.model.Customerorder</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cpassignment00163111?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

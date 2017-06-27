@@ -3,14 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/Dashboard1.java</file>
+            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/ViewAllOrders.java</file>
             <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/Dashboard.java</file>
-            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/DashboardPanel.java</file>
-            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/ViewAllVendors.java</file>
-            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/controller/BookController.java</file>
-            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/controller/VendorController.java</file>
+            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/ViewAllCustomers.java</file>
+            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/controller/OrderController.java</file>
             <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/Login.java</file>
-            <file>file:/C:/Users/Bikas/OneDrive/Documents/NetBeansProjects/CPAssignment00163111/src/edu/softwarica00163111/views/AddVendor.java</file>
         </group>
     </open-files>
 </project-private>

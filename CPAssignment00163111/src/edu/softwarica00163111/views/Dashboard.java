@@ -57,7 +57,12 @@ public class Dashboard extends javax.swing.JFrame {
         addVendor = new javax.swing.JMenuItem();
         viewAllVendors = new javax.swing.JMenuItem();
         bookMenu = new javax.swing.JMenu();
-        addBook = new javax.swing.JMenuItem();
+        customerMenu = new javax.swing.JMenu();
+        addCustomer = new javax.swing.JMenuItem();
+        viewAllCustomers = new javax.swing.JMenuItem();
+        orderMenu = new javax.swing.JMenu();
+        addOrder = new javax.swing.JMenuItem();
+        viewAllOrders = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -73,12 +78,10 @@ public class Dashboard extends javax.swing.JFrame {
         btn_adventure.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_adventure.setForeground(new java.awt.Color(0, 0, 102));
         btn_adventure.setText("Adventure");
-        btn_adventure.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btn_biography.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_biography.setForeground(new java.awt.Color(0, 0, 102));
         btn_biography.setText("Biography");
-        btn_biography.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_biography.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_biographyActionPerformed(evt);
@@ -88,27 +91,22 @@ public class Dashboard extends javax.swing.JFrame {
         btn_fantasy.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_fantasy.setForeground(new java.awt.Color(0, 0, 102));
         btn_fantasy.setText("Fantasy");
-        btn_fantasy.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btn_fiction.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_fiction.setForeground(new java.awt.Color(0, 0, 102));
         btn_fiction.setText("Fiction");
-        btn_fiction.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btn_history.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_history.setForeground(new java.awt.Color(0, 0, 102));
         btn_history.setText("History");
-        btn_history.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btn_horror.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_horror.setForeground(new java.awt.Color(0, 0, 102));
         btn_horror.setText("Horror");
-        btn_horror.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btn_nonFiction.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_nonFiction.setForeground(new java.awt.Color(0, 0, 102));
         btn_nonFiction.setText("Non-Fiction");
-        btn_nonFiction.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_nonFiction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nonFictionActionPerformed(evt);
@@ -118,12 +116,10 @@ public class Dashboard extends javax.swing.JFrame {
         btn_sciFi.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_sciFi.setForeground(new java.awt.Color(0, 0, 102));
         btn_sciFi.setText("Sci-Fi");
-        btn_sciFi.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btn_thriller.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
         btn_thriller.setForeground(new java.awt.Color(0, 0, 102));
         btn_thriller.setText("Thriller");
-        btn_thriller.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lbl_bookGenre.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         lbl_bookGenre.setForeground(new java.awt.Color(153, 153, 255));
@@ -181,7 +177,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(btn_sciFi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_thriller)
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         panel_recent.setBackground(new java.awt.Color(0, 51, 51));
@@ -271,17 +267,57 @@ public class Dashboard extends javax.swing.JFrame {
 
         bookMenu.setText("Book");
         bookMenu.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        menubar.add(bookMenu);
 
-        addBook.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        addBook.setText("Add Book");
-        addBook.addActionListener(new java.awt.event.ActionListener() {
+        customerMenu.setText("Customer");
+        customerMenu.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+
+        addCustomer.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        addCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/add1.png"))); // NOI18N
+        addCustomer.setText("Add Customer");
+        addCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBookActionPerformed(evt);
+                addCustomerActionPerformed(evt);
             }
         });
-        bookMenu.add(addBook);
+        customerMenu.add(addCustomer);
 
-        menubar.add(bookMenu);
+        viewAllCustomers.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        viewAllCustomers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/view.png"))); // NOI18N
+        viewAllCustomers.setText("View all Customers");
+        viewAllCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAllCustomersActionPerformed(evt);
+            }
+        });
+        customerMenu.add(viewAllCustomers);
+
+        menubar.add(customerMenu);
+
+        orderMenu.setText("Order");
+        orderMenu.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+
+        addOrder.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        addOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/add.png"))); // NOI18N
+        addOrder.setText("Add Order");
+        addOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOrderActionPerformed(evt);
+            }
+        });
+        orderMenu.add(addOrder);
+
+        viewAllOrders.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        viewAllOrders.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/view.png"))); // NOI18N
+        viewAllOrders.setText("View all Orders");
+        viewAllOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAllOrdersActionPerformed(evt);
+            }
+        });
+        orderMenu.add(viewAllOrders);
+
+        menubar.add(orderMenu);
 
         setJMenuBar(menubar);
 
@@ -339,15 +375,6 @@ public class Dashboard extends javax.swing.JFrame {
         desktoppane.add(vav);
     }//GEN-LAST:event_viewAllVendorsActionPerformed
 
-    private void addBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBookActionPerformed
-        /*desktoppane.removeAll();
-         desktoppane.repaint();*/
-        AddBook ab = new AddBook();
-        desktoppane.add(ab);
-        ab.setVisible(true);
-        ab.setLocation(250, 5);
-    }//GEN-LAST:event_addBookActionPerformed
-
     private void btn_nonFictionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nonFictionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_nonFictionActionPerformed
@@ -355,6 +382,40 @@ public class Dashboard extends javax.swing.JFrame {
     private void btn_biographyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_biographyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_biographyActionPerformed
+
+    private void addCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerActionPerformed
+        AddCustomer ac = new AddCustomer();
+        desktoppane.add(ac);
+        ac.setVisible(true);
+        ac.setLocation(270, 5);
+        ac.setSize(820, 625);
+    }//GEN-LAST:event_addCustomerActionPerformed
+
+    private void addOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderActionPerformed
+        AddOrder ao = new AddOrder();
+        desktoppane.add(ao);
+        ao.setVisible(true);
+        ao.setLocation(270, 5);
+        ao.setSize(820, 625);
+    }//GEN-LAST:event_addOrderActionPerformed
+
+    private void viewAllCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllCustomersActionPerformed
+        ViewAllCustomers vac = new ViewAllCustomers();
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screensize = toolkit.getScreenSize();
+        vac.setSize(screensize);
+        vac.setVisible(true);
+        desktoppane.add(vac);
+    }//GEN-LAST:event_viewAllCustomersActionPerformed
+
+    private void viewAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllOrdersActionPerformed
+        ViewAllOrders vao = new ViewAllOrders();
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        Dimension screensize = toolkit.getScreenSize();
+        vao.setSize(screensize);
+        vao.setVisible(true);
+        desktoppane.add(vao);
+    }//GEN-LAST:event_viewAllOrdersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,7 +461,8 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem addBook;
+    private javax.swing.JMenuItem addCustomer;
+    private javax.swing.JMenuItem addOrder;
     private javax.swing.JMenuItem addVendor;
     private javax.swing.JMenu bookMenu;
     private javax.swing.JButton btn_adventure;
@@ -413,17 +475,21 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btn_sciFi;
     private javax.swing.JButton btn_search;
     private javax.swing.JButton btn_thriller;
+    private javax.swing.JMenu customerMenu;
     private javax.swing.JDesktopPane desktoppane;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JLabel lbl_bookGenre;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuBar menubar;
+    private javax.swing.JMenu orderMenu;
     private javax.swing.JPanel panel_genre;
     private javax.swing.JPanel panel_recent;
     private javax.swing.JMenuItem systemEdit;
     private javax.swing.JTextField txt_search;
     private javax.swing.JMenu vendorMenu;
+    private javax.swing.JMenuItem viewAllCustomers;
+    private javax.swing.JMenuItem viewAllOrders;
     private javax.swing.JMenuItem viewAllVendors;
     // End of variables declaration//GEN-END:variables
 }

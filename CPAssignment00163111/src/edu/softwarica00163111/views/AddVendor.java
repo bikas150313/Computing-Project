@@ -33,7 +33,7 @@ public class AddVendor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollpane = new javax.swing.JScrollPane();
         panel = new javax.swing.JPanel();
         lbl_vendorName = new javax.swing.JLabel();
         lbl_address = new javax.swing.JLabel();
@@ -68,7 +68,7 @@ public class AddVendor extends javax.swing.JInternalFrame {
         btn_reset = new javax.swing.JButton();
         btn_cancel = new javax.swing.JButton();
 
-        jScrollPane1.setBackground(new java.awt.Color(0, 51, 51));
+        scrollpane.setBackground(new java.awt.Color(0, 51, 51));
 
         panel.setBackground(new java.awt.Color(0, 51, 51));
         panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Vendor Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Cooper Black", 0, 24), new java.awt.Color(153, 153, 255))); // NOI18N
@@ -337,17 +337,17 @@ public class AddVendor extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29))
         );
 
-        jScrollPane1.setViewportView(panel);
+        scrollpane.setViewportView(panel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
+            .addComponent(scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
+            .addComponent(scrollpane, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
 
         pack();
@@ -452,7 +452,6 @@ public class AddVendor extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox combo_genre;
     private javax.swing.JComboBox combo_month;
     private javax.swing.JComboBox combo_year;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_address;
     private javax.swing.JLabel lbl_author;
     private javax.swing.JLabel lbl_bookPurchased;
@@ -469,6 +468,7 @@ public class AddVendor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbl_trs;
     private javax.swing.JLabel lbl_vendorName;
     private javax.swing.JPanel panel;
+    private javax.swing.JScrollPane scrollpane;
     private javax.swing.JTextField txt_address;
     private javax.swing.JTextField txt_author;
     private javax.swing.JTextField txt_bookPurchased;

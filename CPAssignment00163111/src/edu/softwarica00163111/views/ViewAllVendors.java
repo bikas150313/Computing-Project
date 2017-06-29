@@ -7,6 +7,9 @@ package edu.softwarica00163111.views;
 
 import edu.softwarica00163111.controller.VendorController;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -143,7 +146,6 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
             //JOptionPane.showMessageDialog(this, "Vendor Name : " + vendorName + " Book Purchased : " + bookPurchased);
             //EditVendor editvendor = new EditVendor(vendorName, bookPurchased);
             ResultSet rs = vendorcontroller.editVendor(vendorName, bookPurchased);
-            EditVendor editvendor = new EditVendor(rs);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "No vendor selected ! Please select a vendor.");

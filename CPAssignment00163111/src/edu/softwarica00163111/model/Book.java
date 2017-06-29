@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -54,6 +55,10 @@ public class Book implements Serializable {
     @Basic(optional = false)
     @Column(name = "Rate")
     private float rate;
+    @Basic(optional = false)
+    @Lob
+    @Column(name = "CoverImage")
+    private byte[] coverImage;
 
     public Book() {
     }
@@ -62,13 +67,14 @@ public class Book implements Serializable {
         this.id = id;
     }
 
-    public Book(Integer id, String bookName, String author, String genre, int quantity, float rate) {
+    public Book(Integer id, String bookName, String author, String genre, int quantity, float rate, byte[] coverImage) {
         this.id = id;
         this.bookName = bookName;
         this.author = author;
         this.genre = genre;
         this.quantity = quantity;
         this.rate = rate;
+        this.coverImage = coverImage;
     }
 
     public Integer getId() {
@@ -117,6 +123,14 @@ public class Book implements Serializable {
 
     public void setRate(float rate) {
         this.rate = rate;
+    }
+
+    public byte[] getCoverImage() {
+        return coverImage;
+    }
+
+    public void setCoverImage(byte[] coverImage) {
+        this.coverImage = coverImage;
     }
 
     @Override

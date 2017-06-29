@@ -17,11 +17,16 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    //private DashboardPanel dashboardpanel;
-    public Dashboard() {
-        /*dashboardpanel = new DashboardPanel();
-         desktoppane.add(dashboardpanel);*/
+    private boolean clicked;
+    private boolean closed;
+
+    public Dashboard(boolean click) {
+        this.clicked = click;
         initComponents();
+        callInternalFrame();
+    }
+
+    public Dashboard() {
     }
 
     /**
@@ -35,20 +40,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         jMenu1 = new javax.swing.JMenu();
         desktoppane = new javax.swing.JDesktopPane();
-        panel_genre = new javax.swing.JPanel();
-        txt_search = new javax.swing.JTextField();
-        btn_search = new javax.swing.JButton();
-        btn_adventure = new javax.swing.JButton();
-        btn_biography = new javax.swing.JButton();
-        btn_fantasy = new javax.swing.JButton();
-        btn_fiction = new javax.swing.JButton();
-        btn_history = new javax.swing.JButton();
-        btn_horror = new javax.swing.JButton();
-        btn_nonFiction = new javax.swing.JButton();
-        btn_sciFi = new javax.swing.JButton();
-        btn_thriller = new javax.swing.JButton();
-        lbl_bookGenre = new javax.swing.JLabel();
-        panel_recent = new javax.swing.JPanel();
         menubar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         systemEdit = new javax.swing.JMenuItem();
@@ -57,6 +48,7 @@ public class Dashboard extends javax.swing.JFrame {
         addVendor = new javax.swing.JMenuItem();
         viewAllVendors = new javax.swing.JMenuItem();
         bookMenu = new javax.swing.JMenu();
+        uploadBookCover = new javax.swing.JMenuItem();
         customerMenu = new javax.swing.JMenu();
         addCustomer = new javax.swing.JMenuItem();
         viewAllCustomers = new javax.swing.JMenuItem();
@@ -68,148 +60,16 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel_genre.setBackground(new java.awt.Color(0, 51, 51));
-
-        txt_search.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        txt_search.setForeground(new java.awt.Color(0, 51, 153));
-
-        btn_search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/search.png"))); // NOI18N
-
-        btn_adventure.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_adventure.setForeground(new java.awt.Color(0, 0, 102));
-        btn_adventure.setText("Adventure");
-
-        btn_biography.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_biography.setForeground(new java.awt.Color(0, 0, 102));
-        btn_biography.setText("Biography");
-        btn_biography.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_biographyActionPerformed(evt);
-            }
-        });
-
-        btn_fantasy.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_fantasy.setForeground(new java.awt.Color(0, 0, 102));
-        btn_fantasy.setText("Fantasy");
-
-        btn_fiction.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_fiction.setForeground(new java.awt.Color(0, 0, 102));
-        btn_fiction.setText("Fiction");
-
-        btn_history.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_history.setForeground(new java.awt.Color(0, 0, 102));
-        btn_history.setText("History");
-
-        btn_horror.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_horror.setForeground(new java.awt.Color(0, 0, 102));
-        btn_horror.setText("Horror");
-
-        btn_nonFiction.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_nonFiction.setForeground(new java.awt.Color(0, 0, 102));
-        btn_nonFiction.setText("Non-Fiction");
-        btn_nonFiction.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_nonFictionActionPerformed(evt);
-            }
-        });
-
-        btn_sciFi.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_sciFi.setForeground(new java.awt.Color(0, 0, 102));
-        btn_sciFi.setText("Sci-Fi");
-
-        btn_thriller.setFont(new java.awt.Font("Algerian", 0, 18)); // NOI18N
-        btn_thriller.setForeground(new java.awt.Color(0, 0, 102));
-        btn_thriller.setText("Thriller");
-
-        lbl_bookGenre.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
-        lbl_bookGenre.setForeground(new java.awt.Color(153, 153, 255));
-        lbl_bookGenre.setText("Book Genre :");
-
-        javax.swing.GroupLayout panel_genreLayout = new javax.swing.GroupLayout(panel_genre);
-        panel_genre.setLayout(panel_genreLayout);
-        panel_genreLayout.setHorizontalGroup(
-            panel_genreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_genreLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel_genreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_biography, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_adventure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_fantasy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_fiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_horror, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_nonFiction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_sciFi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_thriller, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panel_genreLayout.createSequentialGroup()
-                        .addGroup(panel_genreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_bookGenre)
-                            .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panel_genreLayout.setVerticalGroup(
-            panel_genreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_genreLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel_genreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_search, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lbl_bookGenre)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_adventure)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_biography)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_fantasy)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_fiction)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_history)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_horror)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_nonFiction)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_sciFi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_thriller)
-                .addContainerGap(198, Short.MAX_VALUE))
-        );
-
-        panel_recent.setBackground(new java.awt.Color(0, 51, 51));
-        panel_recent.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Recently Added", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Cooper Black", 0, 24), new java.awt.Color(153, 153, 255))); // NOI18N
-
-        javax.swing.GroupLayout panel_recentLayout = new javax.swing.GroupLayout(panel_recent);
-        panel_recent.setLayout(panel_recentLayout);
-        panel_recentLayout.setHorizontalGroup(
-            panel_recentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1140, Short.MAX_VALUE)
-        );
-        panel_recentLayout.setVerticalGroup(
-            panel_recentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout desktoppaneLayout = new javax.swing.GroupLayout(desktoppane);
         desktoppane.setLayout(desktoppaneLayout);
         desktoppaneLayout.setHorizontalGroup(
             desktoppaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desktoppaneLayout.createSequentialGroup()
-                .addComponent(panel_genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel_recent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 1446, Short.MAX_VALUE)
         );
         desktoppaneLayout.setVerticalGroup(
             desktoppaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_genre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panel_recent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 684, Short.MAX_VALUE)
         );
-        desktoppane.setLayer(panel_genre, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktoppane.setLayer(panel_recent, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         fileMenu.setBorder(null);
         fileMenu.setForeground(new java.awt.Color(0, 51, 51));
@@ -267,6 +127,17 @@ public class Dashboard extends javax.swing.JFrame {
 
         bookMenu.setText("Book");
         bookMenu.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+
+        uploadBookCover.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        uploadBookCover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/softwarica00163111/icons/upload.png"))); // NOI18N
+        uploadBookCover.setText("Upload Book Cover");
+        uploadBookCover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uploadBookCoverActionPerformed(evt);
+            }
+        });
+        bookMenu.add(uploadBookCover);
+
         menubar.add(bookMenu);
 
         customerMenu.setText("Customer");
@@ -336,9 +207,21 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void getAction(boolean click) {
+        this.closed = click;
+    }
+
+    public void callInternalFrame() {
+        if (clicked || closed) {
+            DashboardInternalFrame dif = new DashboardInternalFrame();
+            desktoppane.add(dif);
+            dif.setVisible(true);
+        }
+    }
 
     private void systemEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_systemEditActionPerformed
-        //desktoppane.removeall();
+        desktoppane.removeAll();
+        desktoppane.repaint();
         EditSystemProfile esp = new EditSystemProfile();
         desktoppane.add(esp);
         esp.setVisible(true);
@@ -354,8 +237,8 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutActionPerformed
 
     private void addVendorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVendorActionPerformed
-        /*desktoppane.removeAll();
-         desktoppane.repaint();*/
+        desktoppane.removeAll();
+        desktoppane.repaint();
         AddVendor av = new AddVendor();
         desktoppane.add(av);
         av.setVisible(true);
@@ -364,42 +247,39 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_addVendorActionPerformed
 
     private void viewAllVendorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllVendorsActionPerformed
-        /*desktoppane.removeAll();
-         desktoppane.repaint();*/
+        desktoppane.removeAll();
+        desktoppane.repaint();
         ViewAllVendors vav = new ViewAllVendors();
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screensize = toolkit.getScreenSize();
         vav.setSize(screensize);
-        //vav.setSize(1365, 690);
         vav.setVisible(true);
         desktoppane.add(vav);
     }//GEN-LAST:event_viewAllVendorsActionPerformed
 
-    private void btn_nonFictionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nonFictionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_nonFictionActionPerformed
-
-    private void btn_biographyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_biographyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_biographyActionPerformed
-
     private void addCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCustomerActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
         AddCustomer ac = new AddCustomer();
         desktoppane.add(ac);
         ac.setVisible(true);
-        ac.setLocation(270, 5);
-        ac.setSize(820, 625);
+        ac.setLocation(300, 5);
+        ac.setSize(750, 625);
     }//GEN-LAST:event_addCustomerActionPerformed
 
     private void addOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
         AddOrder ao = new AddOrder();
         desktoppane.add(ao);
         ao.setVisible(true);
-        ao.setLocation(270, 5);
-        ao.setSize(820, 625);
+        ao.setLocation(300, 5);
+        ao.setSize(750, 625);
     }//GEN-LAST:event_addOrderActionPerformed
 
     private void viewAllCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllCustomersActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
         ViewAllCustomers vac = new ViewAllCustomers();
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screensize = toolkit.getScreenSize();
@@ -409,6 +289,8 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_viewAllCustomersActionPerformed
 
     private void viewAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllOrdersActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
         ViewAllOrders vao = new ViewAllOrders();
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screensize = toolkit.getScreenSize();
@@ -417,76 +299,30 @@ public class Dashboard extends javax.swing.JFrame {
         desktoppane.add(vao);
     }//GEN-LAST:event_viewAllOrdersActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Dashboard db = new Dashboard();
-                /*Toolkit toolKit = Toolkit.getDefaultToolkit();
-                 Dimension screenSize = toolKit.getScreenSize();
-                 db.setSize(screenSize);*/
-                db.setVisible(true);
-                db.setResizable(false);
-            }
-        });
-    }
+    private void uploadBookCoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadBookCoverActionPerformed
+        desktoppane.removeAll();
+        desktoppane.repaint();
+        UploadBookCover ubc = new UploadBookCover();
+        ubc.setVisible(true);
+        ubc.setLocation(290, 150);
+        ubc.setSize(725, 250);
+        desktoppane.add(ubc);
+    }//GEN-LAST:event_uploadBookCoverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addCustomer;
     private javax.swing.JMenuItem addOrder;
     private javax.swing.JMenuItem addVendor;
     private javax.swing.JMenu bookMenu;
-    private javax.swing.JButton btn_adventure;
-    private javax.swing.JButton btn_biography;
-    private javax.swing.JButton btn_fantasy;
-    private javax.swing.JButton btn_fiction;
-    private javax.swing.JButton btn_history;
-    private javax.swing.JButton btn_horror;
-    private javax.swing.JButton btn_nonFiction;
-    private javax.swing.JButton btn_sciFi;
-    private javax.swing.JButton btn_search;
-    private javax.swing.JButton btn_thriller;
     private javax.swing.JMenu customerMenu;
     private javax.swing.JDesktopPane desktoppane;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JLabel lbl_bookGenre;
     private javax.swing.JMenuItem logout;
     private javax.swing.JMenuBar menubar;
     private javax.swing.JMenu orderMenu;
-    private javax.swing.JPanel panel_genre;
-    private javax.swing.JPanel panel_recent;
     private javax.swing.JMenuItem systemEdit;
-    private javax.swing.JTextField txt_search;
+    private javax.swing.JMenuItem uploadBookCover;
     private javax.swing.JMenu vendorMenu;
     private javax.swing.JMenuItem viewAllCustomers;
     private javax.swing.JMenuItem viewAllOrders;

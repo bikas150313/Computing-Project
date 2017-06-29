@@ -7,8 +7,6 @@ package edu.softwarica00163111.views;
 
 import edu.softwarica00163111.controller.UserController;
 import edu.softwarica00163111.model.User;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -168,12 +166,10 @@ public class Login extends javax.swing.JFrame {
                 boolean valid = uc.authenticate(um);
                 if (valid) {
                     dispose();
-                    Dashboard db = new Dashboard();
-                    /*Toolkit toolKit = Toolkit.getDefaultToolkit();
-                     Dimension screenSize = toolKit.getScreenSize();
-                     db.setSize(screenSize);*/
-                    db.setVisible(true);
-                    db.setResizable(false);
+                    boolean login = true;
+                    Dashboard dashboard = new Dashboard(login);
+                    dashboard.setVisible(true);
+                    dashboard.setResizable(false);
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid Username or Password !");
                     passfield.setText("");
@@ -190,36 +186,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void btn_loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_loginKeyPressed
-        String username = txt_uname.getText();
-        String password = String.valueOf(passfield.getPassword());
-        if (!username.isEmpty()) {
-            if (!password.isEmpty()) {
-                User um = new User();
-                um.setUsername(username);
-                um.setPassword(password);
-                UserController uc = new UserController();
-                boolean valid = uc.authenticate(um);
-                if (valid) {
-                    dispose();
-                    Dashboard db = new Dashboard();
-                    Toolkit toolKit = Toolkit.getDefaultToolkit();
-                    Dimension screenSize = toolKit.getScreenSize();
-                    db.setSize(screenSize);
-                    db.setVisible(true);
-                    db.setResizable(false);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Invalid Username or Password !");
-                    passfield.setText("");
-                    passfield.requestFocus();
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Please enter system password !");
-                passfield.requestFocus();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please enter username for the system !");
-            txt_uname.requestFocus();
-        }
+
     }//GEN-LAST:event_btn_loginKeyPressed
 
     /**

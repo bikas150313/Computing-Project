@@ -2,6 +2,10 @@ package edu.softwarica00163111.controller;
 
 import edu.softwarica00163111.dbconnection.DBConnection;
 import edu.softwarica00163111.model.Book;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,11 +21,16 @@ public class BookController {
     private Connection con = null;
     private PreparedStatement ps;
     private ResultSet rs;
+    private String path;
 
     public BookController() {
         if (con == null) {
             con = DBConnection.getConnection();
         }
+    }
+
+    public BookController(String path) {
+        this.path = path;
     }
 
     public int addBook(Book book) {
@@ -84,6 +93,33 @@ public class BookController {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+    }
+
+    public ResultSet getAllBooks() {
+        ResultSet rs = null;
+        String query = "select BookName from book";
+        try {
+            ps = con.prepareStatement(query);
+            rs = ps.executeQuery();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return rs;
+    }
+
+    public int updateBookCover(Book book) throws FileNotFoundException {
+        int updated = 0;
+        String query = "update book set CoverImage=? where BookName=?";
+        try {
+            ps = con.prepareStatement(query);
+            InputStream inputstream = new FileInputStream(new File(path));
+            ps.setString(1, book.getBookName());
+            ps.setBlob(2, inputstream);
+            updated = ps.executeUpdate();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return updated;
     }
 
 }

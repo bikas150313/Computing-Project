@@ -385,73 +385,73 @@ public class EditVendor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_resetActionPerformed
 
     private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
-        String vendorName = txt_vendorName.getText();
-        String address = txt_address.getText();
-        String contact = txt_contact.getText();
-        String email = txt_email.getText();
-        String bookPurchased = txt_bookPurchased.getText();
-        String date = (String) combo_date.getSelectedItem();
-        String month = (String) combo_month.getSelectedItem();
-        String year = (String) combo_year.getSelectedItem();
-        String author = txt_author.getText();
-        String genre = (String) combo_genre.getSelectedItem();
-        String quantity = txt_quantity.getText();
-        String rate = txt_rate.getText();
-        String discount = txt_discount.getText();
-        String totalAmount = txt_tAmount.getText();
-        String purchaseDate = date + "-" + month + "-" + year;
-        if (!vendorName.isEmpty() && !address.isEmpty() && !contact.isEmpty() && !email.isEmpty() && !bookPurchased.isEmpty() && !author.isEmpty() && !quantity.isEmpty() && !rate.isEmpty() && !discount.isEmpty() && !totalAmount.isEmpty()) {
-            Vendor vendor = new Vendor();
-            vendor.setBookPurchased(bookPurchased);
-            boolean bookAlreadyExists = vendorcontroller.checkBook(vendor);
-            if (!bookAlreadyExists) {
-                int modifiedQuantity = Integer.parseInt(quantity);
-                float modifiedRate = Float.parseFloat(rate);
-                float modifiedDiscount = Float.parseFloat(discount);
-                float modifiedTotalAmount = Float.parseFloat(totalAmount);
-                vendor.setName(vendorName);
-                vendor.setAddress(address);
-                vendor.setContactNo(contact);
-                vendor.setEmail(email);
-                vendor.setBookPurchased(bookPurchased);
-                vendor.setPurchaseDate(purchaseDate);
-                vendor.setAuthor(author);
-                vendor.setGenre(genre);
-                vendor.setQuantity(modifiedQuantity);
-                vendor.setRate(modifiedRate);
-                vendor.setDiscount(modifiedDiscount);
-                vendor.setTotalAmount(modifiedTotalAmount);
-                Book book = new Book();
-                book.setBookName(bookPurchased);
-                book.setAuthor(author);
-                book.setGenre(genre);
-                book.setQuantity(modifiedQuantity);
-                book.setRate(modifiedRate);
-                BookController bookcontroller = new BookController();
-                int isVendorAdded = vendorcontroller.addVendor(vendor);
-                int isBookAdded = bookcontroller.addBook(book);
-                if (isVendorAdded == 1 && isBookAdded == 1) {
-                    JOptionPane.showMessageDialog(this, "Vendor and Book successfully added !");
-                    txt_vendorName.setText("");
-                    txt_address.setText("");
-                    txt_contact.setText("");
-                    txt_email.setText("");
-                    txt_bookPurchased.setText("");
-                    txt_author.setText("");
-                    txt_quantity.setText("");
-                    txt_rate.setText("");
-                    txt_discount.setText("");
-                    txt_tAmount.setText("");
-                    txt_vendorName.requestFocus();
-                } else {
-                    JOptionPane.showMessageDialog(this, "There was a problem adding Vendor and Book !");
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "This Book is already available in the store. Please modify previous details !");
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please fill all the fields !");
-        }
+        /*String vendorName = txt_vendorName.getText();
+         String address = txt_address.getText();
+         String contact = txt_contact.getText();
+         String email = txt_email.getText();
+         String bookPurchased = txt_bookPurchased.getText();
+         String date = (String) combo_date.getSelectedItem();
+         String month = (String) combo_month.getSelectedItem();
+         String year = (String) combo_year.getSelectedItem();
+         String author = txt_author.getText();
+         String genre = (String) combo_genre.getSelectedItem();
+         String quantity = txt_quantity.getText();
+         String rate = txt_rate.getText();
+         String discount = txt_discount.getText();
+         String totalAmount = txt_tAmount.getText();
+         String purchaseDate = date + "-" + month + "-" + year;
+         if (!vendorName.isEmpty() && !address.isEmpty() && !contact.isEmpty() && !email.isEmpty() && !bookPurchased.isEmpty() && !author.isEmpty() && !quantity.isEmpty() && !rate.isEmpty() && !discount.isEmpty() && !totalAmount.isEmpty()) {
+         Vendor vendor = new Vendor();
+         vendor.setBookPurchased(bookPurchased);
+         boolean bookAlreadyExists = vendorcontroller.checkBook(vendor);
+         if (!bookAlreadyExists) {
+         int modifiedQuantity = Integer.parseInt(quantity);
+         float modifiedRate = Float.parseFloat(rate);
+         float modifiedDiscount = Float.parseFloat(discount);
+         float modifiedTotalAmount = Float.parseFloat(totalAmount);
+         vendor.setName(vendorName);
+         vendor.setAddress(address);
+         vendor.setContactNo(contact);
+         vendor.setEmail(email);
+         vendor.setBookPurchased(bookPurchased);
+         vendor.setPurchaseDate(purchaseDate);
+         vendor.setAuthor(author);
+         vendor.setGenre(genre);
+         vendor.setQuantity(modifiedQuantity);
+         vendor.setRate(modifiedRate);
+         vendor.setDiscount(modifiedDiscount);
+         vendor.setTotalAmount(modifiedTotalAmount);
+         Book book = new Book();
+         book.setBookName(bookPurchased);
+         book.setAuthor(author);
+         book.setGenre(genre);
+         book.setQuantity(modifiedQuantity);
+         book.setRate(modifiedRate);
+         BookController bookcontroller = new BookController();
+         int isVendorAdded = vendorcontroller.addVendor(vendor);
+         int isBookAdded = bookcontroller.addBook(book);
+         if (isVendorAdded == 1 && isBookAdded == 1) {
+         JOptionPane.showMessageDialog(this, "Vendor and Book successfully added !");
+         txt_vendorName.setText("");
+         txt_address.setText("");
+         txt_contact.setText("");
+         txt_email.setText("");
+         txt_bookPurchased.setText("");
+         txt_author.setText("");
+         txt_quantity.setText("");
+         txt_rate.setText("");
+         txt_discount.setText("");
+         txt_tAmount.setText("");
+         txt_vendorName.requestFocus();
+         } else {
+         JOptionPane.showMessageDialog(this, "There was a problem adding Vendor and Book !");
+         }
+         } else {
+         JOptionPane.showMessageDialog(this, "This Book is already available in the store. Please modify previous details !");
+         }
+         } else {
+         JOptionPane.showMessageDialog(this, "Please fill all the fields !");
+         }*/
     }//GEN-LAST:event_btn_okActionPerformed
 
 

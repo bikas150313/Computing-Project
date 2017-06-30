@@ -18,12 +18,8 @@ public class EditSystemProfile extends javax.swing.JInternalFrame {
     /**
      * Creates new form EditSystemProfile
      */
-    private Dashboard dashboard;
-    private boolean closed;
-
     public EditSystemProfile() {
         initComponents();
-        dashboard = new Dashboard();
     }
 
     /**
@@ -209,8 +205,9 @@ public class EditSystemProfile extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_okActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        this.closed = true;
-        dashboard.getAction(closed);
+        DashboardInternalFrame dif = new DashboardInternalFrame();
+        dif.setVisible(true);
+        getParent().add(dif);
         this.dispose();
     }//GEN-LAST:event_btn_cancelActionPerformed
 

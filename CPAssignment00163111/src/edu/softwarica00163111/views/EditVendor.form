@@ -45,7 +45,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder justification="2" position="1" title="Add Vendor Details">
+                <TitledBorder justification="2" position="1" title="Edit Vendor Details">
                   <Font PropertyName="font" name="Cooper Black" size="24" style="0"/>
                   <Color PropertyName="color" blue="ff" green="99" red="99" type="rgb"/>
                 </TitledBorder>

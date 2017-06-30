@@ -5,12 +5,9 @@
  */
 package edu.softwarica00163111.views;
 
-import edu.softwarica00163111.controller.BookController;
 import edu.softwarica00163111.controller.VendorController;
-import edu.softwarica00163111.model.Book;
 import edu.softwarica00163111.model.Vendor;
 import java.sql.ResultSet;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +18,7 @@ public class EditVendor extends javax.swing.JInternalFrame {
     /**
      * Creates new form AddVendor
      */
+    //private Vendor vendor;
     private VendorController vendorcontroller;
     /*private String vendorName;
      private String bookPurchased;*/
@@ -28,6 +26,18 @@ public class EditVendor extends javax.swing.JInternalFrame {
     public EditVendor() {
         vendorcontroller = new VendorController();
         initComponents();
+        Vendor vendor = new Vendor();
+        txt_vendorName.setText(vendor.getName());
+        txt_address.setText(vendor.getAddress());
+        txt_contact.setText(vendor.getContactNo());
+        txt_email.setText(vendor.getEmail());
+        txt_bookPurchased.setText(vendor.getBookPurchased());
+        txt_author.setText(vendor.getAuthor());
+        txt_quantity.setText(Integer.toString(vendor.getQuantity()));
+        txt_rate.setText(Float.toString(vendor.getRate()));
+        txt_discount.setText(Float.toString(vendor.getDiscount()));
+        txt_tAmount.setText(Float.toString(vendor.getTotalAmount()));
+        //setValue();
     }
 
     public EditVendor(ResultSet rs) {
@@ -84,7 +94,7 @@ public class EditVendor extends javax.swing.JInternalFrame {
         jScrollPane1.setBackground(new java.awt.Color(0, 51, 51));
 
         panel.setBackground(new java.awt.Color(0, 51, 51));
-        panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add Vendor Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Cooper Black", 0, 24), new java.awt.Color(153, 153, 255))); // NOI18N
+        panel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edit Vendor Details", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Cooper Black", 0, 24), new java.awt.Color(153, 153, 255))); // NOI18N
 
         lbl_vendorName.setFont(new java.awt.Font("Hobo Std", 0, 24)); // NOI18N
         lbl_vendorName.setForeground(new java.awt.Color(51, 153, 0));
@@ -365,8 +375,14 @@ public class EditVendor extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public void setValue() {
+
+    }
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        DashboardInternalFrame dif = new DashboardInternalFrame();
+        dif.setVisible(true);
+        getParent().add(dif);
         dispose();
     }//GEN-LAST:event_btn_cancelActionPerformed
 

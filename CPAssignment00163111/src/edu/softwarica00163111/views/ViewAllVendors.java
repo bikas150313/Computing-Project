@@ -6,11 +6,11 @@
 package edu.softwarica00163111.views;
 
 import edu.softwarica00163111.controller.VendorController;
+import edu.softwarica00163111.model.Vendor;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,12 +22,19 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewAllVendors
      */
-    private VendorController vendorcontroller;
+    private final VendorController vendorcontroller;
 
     public ViewAllVendors() {
         initComponents();
         vendorcontroller = new VendorController();
         this.loadAllVendors();
+        addInternalFrameListener(new InternalFrameAdapter() {
+            public void internalFrameClosing(InternalFrameEvent e) {
+                DashboardInternalFrame dif = new DashboardInternalFrame();
+                dif.setVisible(true);
+                getParent().add(dif);
+            }
+        });
     }
 
     /**
@@ -142,10 +149,34 @@ public class ViewAllVendors extends javax.swing.JInternalFrame {
         int row = tbl_viewAllVendors.getSelectedRow();
         if (row >= 0) {
             String vendorName = (String) tbl_viewAllVendors.getModel().getValueAt(row, 0);
+            String address = (String) tbl_viewAllVendors.getModel().getValueAt(row, 1);
+            String contact = (String) tbl_viewAllVendors.getModel().getValueAt(row, 2);
+            String email = (String) tbl_viewAllVendors.getModel().getValueAt(row, 3);
             String bookPurchased = (String) tbl_viewAllVendors.getModel().getValueAt(row, 4);
+            String author = (String) tbl_viewAllVendors.getModel().getValueAt(row, 6);
+            int quantity = (int) tbl_viewAllVendors.getModel().getValueAt(row, 8);
+            float rate = (float) tbl_viewAllVendors.getModel().getValueAt(row, 9);
+            float discount = (float) tbl_viewAllVendors.getModel().getValueAt(row, 10);
+            float totalAmount = (float) tbl_viewAllVendors.getModel().getValueAt(row, 11);
+            Vendor vendor = new Vendor();
+            vendor.setName(vendorName);
+            vendor.setAddress(address);
+            vendor.setContactNo(contact);
+            vendor.setEmail(email);
+            vendor.setBookPurchased(bookPurchased);
+            vendor.setAuthor(author);
+            vendor.setQuantity(quantity);
+            vendor.setRate(rate);
+            vendor.setDiscount(discount);
+            vendor.setTotalAmount(totalAmount);
+            EditVendor editvendor = new EditVendor();
+            editvendor.setVisible(true);
+            editvendor.setLocation(270, 5);
+            editvendor.setSize(820, 625);
+            getParent().add(editvendor);
             //JOptionPane.showMessageDialog(this, "Vendor Name : " + vendorName + " Book Purchased : " + bookPurchased);
             //EditVendor editvendor = new EditVendor(vendorName, bookPurchased);
-            ResultSet rs = vendorcontroller.editVendor(vendorName, bookPurchased);
+            //ResultSet rs = vendorcontroller.editVendor(vendorName, bookPurchased);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "No vendor selected ! Please select a vendor.");

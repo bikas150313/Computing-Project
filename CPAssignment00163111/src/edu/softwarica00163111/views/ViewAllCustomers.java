@@ -8,6 +8,8 @@ package edu.softwarica00163111.views;
 import edu.softwarica00163111.controller.CustomerController;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,12 +21,19 @@ public class ViewAllCustomers extends javax.swing.JInternalFrame {
     /**
      * Creates new form ViewAllVendors
      */
-    private CustomerController customercontroller;
+    private final CustomerController customercontroller;
 
     public ViewAllCustomers() {
         initComponents();
         customercontroller = new CustomerController();
         this.loadAllCustomers();
+        addInternalFrameListener(new InternalFrameAdapter() {
+            public void internalFrameClosing(InternalFrameEvent e) {
+                DashboardInternalFrame dif = new DashboardInternalFrame();
+                dif.setVisible(true);
+                getParent().add(dif);
+            }
+        });
     }
 
     /**

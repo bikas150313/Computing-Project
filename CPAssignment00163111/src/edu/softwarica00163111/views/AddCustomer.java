@@ -326,6 +326,9 @@ public class AddCustomer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        DashboardInternalFrame dif = new DashboardInternalFrame();
+        dif.setVisible(true);
+        getParent().add(dif);
         dispose();
     }//GEN-LAST:event_btn_cancelActionPerformed
 

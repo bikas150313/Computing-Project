@@ -8,6 +8,8 @@ package edu.softwarica00163111.views;
 import edu.softwarica00163111.controller.OrderController;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -25,6 +27,13 @@ public class ViewAllOrders extends javax.swing.JInternalFrame {
         initComponents();
         ordercontroller = new OrderController();
         this.loadAllOrders();
+        addInternalFrameListener(new InternalFrameAdapter() {
+            public void internalFrameClosing(InternalFrameEvent e) {
+                DashboardInternalFrame dif = new DashboardInternalFrame();
+                dif.setVisible(true);
+                getParent().add(dif);
+            }
+        });
     }
 
     /**
@@ -168,11 +177,13 @@ public class ViewAllOrders extends javax.swing.JInternalFrame {
             int deleteOrder = ordercontroller.cancelOrder(customerName, bookOrdered);
             if (deleteOrder == 1) {
                 JOptionPane.showMessageDialog(this, "Order cancelled !");
+                DefaultTableModel model = (DefaultTableModel) tbl_viewAllOrders.getModel();
+                model.removeRow(row);
             } else {
                 JOptionPane.showMessageDialog(this, "There was a problem cancelling the order !");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "No order selected ! Please select a order.");
+            JOptionPane.showMessageDialog(this, "No order selected ! Please select an order.");
         }
     }//GEN-LAST:event_btn_cancelOrderActionPerformed
 

@@ -35,7 +35,7 @@ public class BookController {
 
     public int addBook(Book book) {
         int bookAdded = 0;
-        String query = "insert into book(ID,BookName,Author,Genre,Quantity,Rate) values(?,?,?,?,?,?)";
+        String query = "insert into book(ID,BookName,Author,Genre,Quantity,Rate,CoverImage) values(?,?,?,?,?,?,?)";
         try {
             ps = con.prepareStatement(query);
             ps.setString(1, null);
@@ -44,6 +44,7 @@ public class BookController {
             ps.setString(4, book.getGenre());
             ps.setInt(5, book.getQuantity());
             ps.setFloat(6, book.getRate());
+            ps.setString(7, "");
             bookAdded = ps.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -113,13 +114,12 @@ public class BookController {
         try {
             ps = con.prepareStatement(query);
             InputStream inputstream = new FileInputStream(new File(path));
-            ps.setString(1, book.getBookName());
-            ps.setBlob(2, inputstream);
+            ps.setBlob(1, inputstream);
+            ps.setString(2, book.getBookName());
             updated = ps.executeUpdate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
         return updated;
     }
-
 }

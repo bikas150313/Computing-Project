@@ -178,15 +178,16 @@ public class UploadBookCover extends javax.swing.JInternalFrame {
             Book book = new Book();
             book.setBookName(bookName);
             bookcontroller = new BookController(this.path);
+            int isUpdated = 0;
             try {
-                int isUpdated = bookcontroller.updateBookCover(book);
-                if (isUpdated == 1) {
-                    JOptionPane.showMessageDialog(this, "Book cover image successfully inserted !");
-                } else {
-                    JOptionPane.showMessageDialog(this, "There was a problem inserting book cover image !");
-                }
+                isUpdated = bookcontroller.updateBookCover(book);
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(UploadBookCover.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (isUpdated == 1) {
+                JOptionPane.showMessageDialog(this, "Book cover image successfully inserted !");
+            } else {
+                JOptionPane.showMessageDialog(this, "There was a problem inserting book cover image !");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Please select an image !");
@@ -194,6 +195,9 @@ public class UploadBookCover extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_uploadActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
+        DashboardInternalFrame dif = new DashboardInternalFrame();
+        dif.setVisible(true);
+        getParent().add(dif);
         this.dispose();
     }//GEN-LAST:event_btn_cancelActionPerformed
 
@@ -205,9 +209,9 @@ public class UploadBookCover extends javax.swing.JInternalFrame {
         int result = filechooser.showSaveDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedfile = filechooser.getSelectedFile();
-            String path = selectedfile.getAbsolutePath();
-            txt_imagePath.setText(path);
-            this.path = path;
+            String urlPath = selectedfile.getAbsolutePath();
+            txt_imagePath.setText(urlPath);
+            this.path = urlPath;
         }
     }//GEN-LAST:event_btn_chooseImageActionPerformed
 
